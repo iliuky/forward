@@ -1,0 +1,10 @@
+from mcr.microsoft.com/dotnet/core/runtime:2.1
+
+WORKDIR /app
+COPY ./ .
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+EXPOSE 5000
+EXPOSE 1389
+
+ENTRYPOINT ["dotnet", "Forward.Server.dll"]
